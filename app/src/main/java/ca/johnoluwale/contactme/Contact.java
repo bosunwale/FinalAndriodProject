@@ -6,6 +6,9 @@ import android.arch.persistence.room.PrimaryKey;
 
 import androidx.annotation.NonNull;
 
+/**
+ * Table creation for SQLite database
+ */
 @Entity(tableName = "contact")
 public class Contact {
     @PrimaryKey(autoGenerate = true)
@@ -19,8 +22,10 @@ public class Contact {
     @ColumnInfo(name = "Contact Email")
     private String contactEmail;
 
-    //Constructor
-    public Contact(String name, String email){
+    /**
+     * Constructor
+     */
+    public Contact(@NonNull String name, @NonNull String email){
         this.contactName = name;
         this.contactEmail = email;
     }
