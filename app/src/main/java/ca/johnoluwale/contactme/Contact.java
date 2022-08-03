@@ -14,7 +14,7 @@ public class Contact {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "Id")
-    private int cid;
+    private int id;
     @ColumnInfo(name = "Contact Name")
     private String contactName;
     @ColumnInfo(name = "Contact Email")
@@ -32,9 +32,6 @@ public class Contact {
     }
 
     //getter methods for the declared variables
-    public int getId() {
-        return cid;
-    }
     public String getContactName(){
         return contactName;
     }
