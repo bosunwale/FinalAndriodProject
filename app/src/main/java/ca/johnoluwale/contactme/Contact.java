@@ -15,19 +15,20 @@ public class Contact {
     @NonNull
     @ColumnInfo(name = "Id")
     private int cid;
-    @NonNull
     @ColumnInfo(name = "Contact Name")
     private String contactName;
-    @NonNull
     @ColumnInfo(name = "Contact Email")
     private String contactEmail;
+    @ColumnInfo(name = "Contact MobileNumber")
+    private String contactNumber;
 
     /**
      * Constructor
      */
-    public Contact(@NonNull String name, @NonNull String email){
+    public Contact(@NonNull String name, @NonNull String email, @NonNull String mobileNumber){
         this.contactName = name;
         this.contactEmail = email;
+        this.contactNumber = mobileNumber;
     }
 
     //getter methods for the declared variables
@@ -40,4 +41,5 @@ public class Contact {
     public String getContactEmail(){
         return contactEmail;
     }
+    public String getContactNumber(){return contactNumber; }
 }
