@@ -6,6 +6,8 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
+import androidx.lifecycle.LiveData;
+
 import java.util.List;
 
 /**
@@ -29,5 +31,5 @@ public interface ContactDao {
     void updateContact(Contact contact);
 
     @Query("SELECT * FROM contact ORDER BY `Contact Name`ASC")
-    List<Contact> getAllContact();
+    LiveData<List<Contact>> getAllContact();
 }
