@@ -5,6 +5,10 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+/**
+ * Room Database for Contact Application
+ */
+
 //Annotating the class to be a Room Database
 @Database(entities = {Contact.class}, version = 1, exportSchema = false)
 public abstract class ContactRoomDatabase extends RoomDatabase {
@@ -21,6 +25,7 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
         if (INSTANCE == null){
             synchronized (ContactRoomDatabase.class){
                 if (INSTANCE == null){
+                    //TODO: Create Database
                     //Creates room database object using Room's database builder
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ContactRoomDatabase.class, "contact_database")
