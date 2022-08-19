@@ -60,4 +60,34 @@ public class ContactRepository {
             return null;
         }
     }
+    public void deleteContact(Contact contact){
+        new deleteAsyncTask(nContacDao).execute(contact);
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<Contact, Void, Void>{
+        private ContactDao mAsyncTaskDao;
+        deleteAsyncTask(ContactDao contactDao){
+            mAsyncTaskDao = contactDao;
+        }
+        @Override
+        protected Void doInBackground(Contact... contacts) {
+            mAsyncTaskDao.deleteContact(contacts[0]);
+            return null;
+        }
+    }
+
+    private static class updateAsyncTask extends AsyncTask<Contact, Void, Void>{
+        private ContactDao mAsyncTaskDao;
+        updateAsyncTask(ContactDao contactDao){
+            mAsyncTaskDao = contactDao;
+        }
+        @Override
+        protected Void doInBackground(Contact... contacts) {
+            mAsyncTaskDao.updateContact(contacts[0]);
+            return null;
+        }
+    }
+    public void updateContact(Contact contact){
+        new updateAsyncTask(nContacDao).execute(contact);
+    }
 }

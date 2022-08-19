@@ -1,16 +1,22 @@
 package ca.johnoluwale.contactme;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
+
+//import android.arch.persistence.room.Database;
+//import android.arch.persistence.room.Room;
+//import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
 
 /**
  * Room Database for Contact Application
  */
 
 //Annotating the class to be a Room Database
-@Database(entities = {Contact.class}, version = 1, exportSchema = false)
+@Database(entities = {Contact.class}, version = 3, exportSchema = false)
 public abstract class ContactRoomDatabase extends RoomDatabase {
 
     //Defining the Dao that will work with the database

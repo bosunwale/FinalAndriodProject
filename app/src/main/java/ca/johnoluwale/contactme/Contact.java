@@ -1,10 +1,16 @@
 package ca.johnoluwale.contactme;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+
+//import android.arch.persistence.room.ColumnInfo;
+//import android.arch.persistence.room.Entity;
+//import android.arch.persistence.room.PrimaryKey;
+//
+//import android.support.annotation.NonNull;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 /**
  * Table creation for SQLite database
@@ -13,8 +19,7 @@ import androidx.annotation.NonNull;
 public class Contact {
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    @ColumnInfo(name = "Id")
-    private int id;
+    public int id;
     @ColumnInfo(name = "Contact Name")
     private String contactName;
     @ColumnInfo(name = "Contact Email")
@@ -25,18 +30,30 @@ public class Contact {
     /**
      * Constructor
      */
-    public Contact(@NonNull String name, @NonNull String email, @NonNull String mobileNumber){
-        this.contactName = name;
-        this.contactEmail = email;
-        this.contactNumber = mobileNumber;
+    public Contact(@NonNull String contactName, @NonNull String contactEmail, @NonNull String contactNumber){
+        this.contactName = contactName;
+        this.contactEmail = contactEmail;
+        this.contactNumber = contactNumber;
     }
 
+//    public Contact(String contactName){
+//        this.contactName = contactName;
+//    }
+
     //getter methods for the declared variables
-    public String getContactName(){
-        return contactName;
-    }
+    public String getContactName(){return contactName;}
     public String getContactEmail(){
         return contactEmail;
     }
     public String getContactNumber(){return contactNumber; }
+
+    public void setName(String name){
+        this.contactName = name;
+    }
+    public void setEmail(String email){
+       this.contactEmail = email;
+    }
+    public void setNumber(String number){
+        this.contactNumber = number;
+    }
 }
